@@ -36,3 +36,7 @@ Jenkins install on ec2 instructions that i used in Image Builder:
     
     had to setup "my-agent" Labels under "Configure System" link below 
         http://18.212.26.245:8080/manage/configure
+        
+        
+    sample Jenkinsfile
+        https://github.com/jstrachan/spring-boot-web-gradle/blob/master/Jenkinsfile
