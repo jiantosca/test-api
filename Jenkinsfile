@@ -35,11 +35,6 @@ pipeline {
         }
         
         stage('cleanup') {
-            when {
-                anyOf { 
-                    branch 'release-*'; branch 'master' 
-                }
-            }
             steps {
                 sh 'docker system prune -f'
             }
