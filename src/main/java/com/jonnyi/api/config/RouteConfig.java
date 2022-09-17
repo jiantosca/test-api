@@ -26,6 +26,6 @@ public class RouteConfig {
         return RouterFunctions.route(
                 GET("/test").and(accept(MediaType.APPLICATION_JSON)), serverReq -> ServerResponse.ok()
                         .contentType(MediaType.TEXT_PLAIN)
-                        .body(Mono.just(String.format("Ok (from %s)", appName)), String.class));
+                        .body(Mono.just(String.format("Ok (from app named %s)", appName)), String.class));
     }
 }

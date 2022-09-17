@@ -30,3 +30,5 @@ Jenkins install on ec2 instructions:
     webhook setup for github... 
         https://www.blazemeter.com/blog/how-to-integrate-your-github-repository-to-your-jenkins-project
     
+    multi-branch pipeline
+        https://www.cloudbees.com/blog/jenkins-multibranch-pipeline-with-git-tutorial
