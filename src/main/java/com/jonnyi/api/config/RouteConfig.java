@@ -24,7 +24,10 @@ public class RouteConfig {
     public RouterFunction<ServerResponse> testRoute() {
         log.debug("creating /test router function.");
         return RouterFunctions.route(
-                GET("/test").and(accept(MediaType.APPLICATION_JSON)), serverReq -> ServerResponse.ok()
+                GET("/test")
+
+
+.and(accept(MediaType.APPLICATION_JSON)), serverReq -> ServerResponse.ok()
                         .contentType(MediaType.TEXT_PLAIN)
                         .body(Mono.just(String.format("Ok (from app named %s)", appName)), String.class));
     }
