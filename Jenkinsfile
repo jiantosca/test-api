@@ -2,9 +2,9 @@
 
 pipeline {
     
-    //agent {
-      //  label 'any'
-    //}
+    agent {
+        label 'jenkins-gradle'
+    }
     
     stages {
         stage('clean') {
