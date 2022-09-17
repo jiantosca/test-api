@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'eclipse'
 	id 'com.palantir.docker' version '0.34.0'
+	id 'com.palantir.docker-run' version '0.34.0'
 	id "com.diffplug.spotless" version "6.11.0"
 	id 'org.springframework.boot' version '3.0.0-M4'
 	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
@@ -39,6 +40,14 @@ docker {
 	name "${project.name}:${project.version}"
 	files "$buildDir/libs/${project.name}-${project.version}.jar"
 	buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
+}
+
+dockerRun {
+    name "${project.name}"
+    image "${project.name}:${project.version}"
+    ports '8080:8080'
+    clean true //when container is stopped it will be removed.
+    daemonize false
 }
 
 tasks.named('test') {

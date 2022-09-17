@@ -5,9 +5,11 @@ pipeline {
     agent any
     
     stages {
+        
         stage('clean') {
             steps {
                 sh './gradlew clean'
+                sh './gradlew dockerClean'
             }
         }
 
@@ -16,7 +18,13 @@ pipeline {
                 sh './gradlew build'
             }
         }
+        
+        stage('docker') {
+            steps {
+                sh './gradlew docker'
+                sh 'docker system prune -f'
+            }
+        }
+        
     }
-    
 }
-
