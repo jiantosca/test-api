@@ -24,16 +24,26 @@ pipeline {
         }
         
         stage('docker') {
-            when {
-                branch 'master'
-                branch 'release-*'
+             when {
+                anyOf { 
+                    branch 'release-*'; branch 'master' 
+                }
             }
-
             steps {
                 sh './gradlew docker'
-                sh 'docker system prune -f'
             }
         }
+        
+        stage('cleanup') {
+            when {
+                anyOf { 
+                    branch 'release-*'; branch 'master' 
+                }
+            }
+            steps {
+                sh 'docker system prune -f'
+            }
+        }        
         
     }
 }
