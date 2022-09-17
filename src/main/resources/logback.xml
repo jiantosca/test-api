@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<!-- <shutdownHook/> lombok chokes on this with boot3, but seems to work with redis-webflux project on boot 6--> 
+	<!-- Send debug messages to System.out -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- By default, encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{0} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+    <appender name="async"
+        class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold> <!-- default 20, means drop lower event when has 20% capacity remaining -->
+        <appender-ref ref="console" />
+        <queueSize>1</queueSize> <!-- default 256 -->
+        <includeCallerData>false</includeCallerData><!-- default false -->
+        <neverBlock>true</neverBlock><!-- default false, set to true to cause the 
+            Appender not block the application and just drop the messages -->
+    </appender>
+    
+    <logger name="com.jonnyi" level="debug" />
+    
+	<!-- By default, the level of the root level is set to DEBUG -->
+	<root level="warn">
+		<!-- jvm can shut down before async is flushed in my test, so using console directly --> 
+		<appender-ref ref="console" />
+	</root>
+</configuration>

@@ -1,0 +1,22 @@
+Beanstalk vs ECS/EC2 vs ECS/Fargate
+	https://ubertasconsulting.com/2021/07/06/modernising-in-aws-elastic-beanstalk-to-fargate/
+
+docker run -it --name aws-api-reactive -p 8080:8080 aws-api-reactive
+docker start -i aws-api-reactive
+
+pushing to my ECR: 
+	1. Authenticate docker client to my ECR repository:
+		aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 159565943148.dkr.ecr.us-east-1.amazonaws.com/reactive-api
+	
+	2. tag the image: 
+		docker tag 0b16e1c54b64 159565943148.dkr.ecr.us-east-1.amazonaws.com/aws-api-reactive:latest
+		
+	3. push the image:
+		docker push 159565943148.dkr.ecr.us-east-1.amazonaws.com/aws-api-reactive:latest
+		
+		
+Enable Container Insights - option when setting up cluster, I didn't enable this.
+
+
+After creating my ECR Cluster, i had to install instance connect (not there by default)
+	sudo yum install ec2-instance-connect
