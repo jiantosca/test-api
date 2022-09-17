@@ -24,6 +24,11 @@ pipeline {
         }
         
         stage('docker') {
+            when {
+                branch 'master'
+                branch 'release-*'
+            }
+
             steps {
                 sh './gradlew docker'
                 sh 'docker system prune -f'
