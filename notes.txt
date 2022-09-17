@@ -23,7 +23,7 @@ After creating my ECR Cluster, i had to install instance connect (not there by d
 	
 	   
 	
-Jenkins install on ec2 instructions:
+Jenkins install on ec2 instructions that i used in Image Builder:
     Lots i don't need in here but pretty good...
     https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/
     
