@@ -23,6 +23,15 @@ pipeline {
             }
         }
         
+        stage('sonar') {
+            steps {
+                // this guy fully qulifies plugin so we don't have to put in project https://www.youtube.com/watch?v=KsTMy0920go
+                withSonarQubeEnv(installationName: 'sq1') {
+                    sh './gradlew sonar'
+                }
+            }
+        }
+                
         stage('docker') {
              when {
                 anyOf { 

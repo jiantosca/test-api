@@ -1,12 +1,12 @@
 plugins {
 	id 'java'
 	id 'eclipse'
+	id "org.sonarqube" version "3.4.0.2513"
 	id 'com.palantir.docker' version '0.34.0'
 	id 'com.palantir.docker-run' version '0.34.0'
 	id "com.diffplug.spotless" version "6.11.0"
 	id 'org.springframework.boot' version '3.0.0-M4'
 	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
-	
 }
 
 group = 'com.jonnyi'
