@@ -20,4 +20,3 @@ Enable Container Insights - option when setting up cluster, I didn't enable this
 
 After creating my ECR Cluster, i had to install instance connect (not there by default)
 	sudo yum install ec2-instance-connect
-
