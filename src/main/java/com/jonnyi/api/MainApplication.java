@@ -23,5 +23,9 @@ public class MainApplication {
     @PostConstruct
     void postConstruct() {
         log.info("Entering postConstruct()");
+        log.info("Testing sonar so adding more code for no reason");
+        log.info("Testing sonar so adding more code for no reason");
+        log.info("Testing sonar so adding more code for no reason");
+        log.info("Testing sonar so adding more code for no reason");
     }
 }
