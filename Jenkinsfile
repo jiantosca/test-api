@@ -16,7 +16,13 @@ pipeline {
                 sh './gradlew dockerClean'
             }
         }
-
+        
+        stage('spotless') {
+            steps {
+                sh './gradlew build'
+            }
+        }
+        
         stage('build') {
             steps {
                 sh './gradlew build'
