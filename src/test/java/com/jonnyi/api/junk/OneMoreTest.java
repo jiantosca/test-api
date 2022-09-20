@@ -11,5 +11,9 @@ class OneMoreTest {
         var oneMore = new OneMore("myId");
 
         assertTrue(oneMore.doSomething().contains("myId"));
+        
+        assertTrue(oneMore.getId() ==  "myId");
+        
+        assertTrue(oneMore.toString().contains("myId"));
     }
 }
