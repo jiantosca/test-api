@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class SomeCodeTest {
+public class SomeCodeTest {
 
     @Test
-    void test() {
+    public void test() {
         var oneMore = new SomeCode("myId");
 
         assertTrue(oneMore.doSomething().contains("myId"));
