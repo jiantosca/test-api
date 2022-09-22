@@ -16,6 +16,5 @@ public class SomeCodeTest {
 
         assertTrue(oneMore.toString().contains("myId"));
 
-        assertFalse(!oneMore.toString().contains("myId"));
     }
 }
