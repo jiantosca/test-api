@@ -15,5 +15,7 @@ public class SomeCodeTest {
         assertSame(oneMore.getId(), "myId");
 
         assertTrue(oneMore.toString().contains("myId"));
+        
+        
     }
 }
